@@ -13,7 +13,7 @@ These algorithms are historical ciphers that formed the foundation of **modern c
 | Shift Cipher      | Generalized Caesar Cipher, works with both uppercase and lowercase letters.| hello → (key=5) → mjqqt          |
 | Hill Cipher       | Uses **matrix multiplication + modular arithmetic** to encrypt text.       | Uses 2x2 or 3x3 key matrices     |
 | Playfair Cipher   | Encrypts digraphs (pairs of letters) using a 5x5 key matrix.               | HELLO → HE LX LO (key-based grid)|
-| Vernam Cipher     | Bitwise XOR between plaintext and key.                                     | A(65) ⊕ K(75) = 10               |
+| Vernam Cipher     | Bitwise XOR between plaintext and key.                                     | A(65) + K(75) = 10               |
 | Vigenère Cipher   | Polyalphabetic cipher using a keyword.                                     | ATTACKATDAWN + LEMON → LXFOPV... |
 | One-Time Pad      | Unbreakable cipher if key = random, unique, and as long as plaintext.      | Perfect secrecy guaranteed       |
 
