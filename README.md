@@ -24,25 +24,25 @@ These algorithms are historical ciphers that formed the foundation of **modern c
 Clone the repository:  
 
 ```bash
-git clone https://github.com/<your-username>/classical-crypto-algorithms.git
+git clone https://github.com/utsavpatel562/classical-crypto-algorithms.git
 cd classical-crypto-algorithms
 ```
 
 Run any file with Node.js:
 ```bash
-node CaesarCipher.js
+node CaesarCipher.ts
 ```
 
 ### 📂 Project Structure
 ```bash
 📁 classical-crypto-algorithms
-│── CaesarCipher.js / CaesarCipher.ts
-│── ShiftCipher.js / ShiftCipher.ts
-│── HillCipher.js / HillCipher.ts
-│── PlayfairCipher.js / PlayfairCipher.ts
-│── VernamCipher.js / VernamCipher.ts
-│── VigenereCipher.js / VigenereCipher.ts
-│── OneTimePad.js / OneTimePad.ts
+│── CaesarCipher.ts
+│── ShiftCipher.ts
+│── HillCipher.ts
+│── PlayfairCipher.ts
+│── VernamCipher.ts
+│── VigenereCipher.ts
+│── OneTimePad.ts
 │── README.md
 ```
 
