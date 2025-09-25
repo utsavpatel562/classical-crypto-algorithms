@@ -1,4 +1,4 @@
-// COde by Utsav Patel
+// Code by Utsav Patel
 // Vigenere Cipher in TypeScript
 // Encryption and Decryption implementation
 
@@ -96,3 +96,4 @@ rl.question("Enter Plain Text: ", (plainText) => {
 
   rl.close();
 });
+
