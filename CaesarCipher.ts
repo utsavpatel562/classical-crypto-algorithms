@@ -1,67 +1,43 @@
 // Code by Utsav Patel
+// Caesar Cipher
 
-import * as readline from "readline";
+function encryptCaesar(plaintext: string, shift: number): string {
+  const A = "A".charCodeAt(0); // ASCII for A
+  const Z = "Z".charCodeAt(0); // ASCII for Z
+  const a = "a".charCodeAt(0); // ASCII for a
+  const z = "z".charCodeAt(0); // ASCII for z
 
-// Create interface for input/output
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+  let result = "";
 
-// Ask user for plain text
-rl.question("Enter Plain Text = ", (plain: string) => {
-  // Ask user for the key
-  rl.question("Enter the key = ", (keyInput: string) => {
-    const key: number = parseInt(keyInput); // Convert key to integer
+  for (let char of plaintext) {
+    let code = char.charCodeAt(0);
 
-    // ENCRYPTION LOGIC
-    let cipher: string = "";
-    for (let i = 0; i < plain.length; i++) {
-      let ch: string = plain[i];
-
-      // If character is uppercase (A-Z)
-      if (ch >= "A" && ch <= "Z") {
-        cipher += String.fromCharCode(
-          ((ch.charCodeAt(0) - 65 + key) % 26) + 65
-        );
-      }
-      // If character is lowercase (a-z)
-      else if (ch >= "a" && ch <= "z") {
-        cipher += String.fromCharCode(
-          ((ch.charCodeAt(0) - 97 + key) % 26) + 97
-        );
-      }
-      // If it's not a letter (symbols, numbers, spaces)
-      else {
-        cipher += ch;
-      }
+    if (code >= A && code <= Z) {
+      // Uppercase letters
+      result += String.fromCharCode(((code - A + shift) % 26) + A);
+    } else if (code >= a && code <= z) {
+      // Lowercase letters
+      result += String.fromCharCode(((code - a + shift) % 26) + a);
+    } else {
+      // Non-alphabetical characters stay the same
+      result += char;
     }
-    console.log("Encrypted Text =", cipher);
+  }
 
-    // DECRYPTION LOGIC
-    let decrypted: string = "";
-    for (let i = 0; i < cipher.length; i++) {
-      let ch: string = cipher[i];
+  return result;
+}
 
-      // If character is uppercase (A-Z)
-      if (ch >= "A" && ch <= "Z") {
-        decrypted += String.fromCharCode(
-          ((ch.charCodeAt(0) - 65 - key + 26) % 26) + 65
-        );
-      }
-      // If character is lowercase (a-z)
-      else if (ch >= "a" && ch <= "z") {
-        decrypted += String.fromCharCode(
-          ((ch.charCodeAt(0) - 97 - key + 26) % 26) + 97
-        );
-      }
-      // If it's not a letter
-      else {
-        decrypted += ch;
-      }
-    }
-    console.log("Decryption is =", decrypted);
+function decryptCaesar(ciphertext: string, shift: number): string {
+  // Decryption is just shifting backwards
+  return encryptCaesar(ciphertext, (26 - (shift % 26)) % 26);
+}
 
-    rl.close(); // Close input
-  });
-});
+// Example usage
+const plaintext = "COMPUTER AND NETWORK SECURITY";
+const key = 3;
+
+const encrypted = encryptCaesar(plaintext, key);
+console.log("Encrypted:", encrypted); // FRPSXWHU DQG QHWZRUN VHFXULWB
+
+const decrypted = decryptCaesar(encrypted, key);
+console.log("Decrypted:", decrypted); // COMPUTER AND NETWORK SECURITY
